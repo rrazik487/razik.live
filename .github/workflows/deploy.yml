@@ -33,7 +33,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload artifact using v4 (safe version)
+      - name: Upload artifact using v4
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
@@ -50,3 +50,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          artifact_name: github-pages
