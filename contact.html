@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | S. Razikur Rahman</title>
+  <link rel="stylesheet" href="styles/contact.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">Razik</div>
+      <nav id="navbar">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="certifications.html">Certifications</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li>
+            <a href="https://instagram.com/razik_487" target="_blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/s-razikur-rahman-304415235" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+          </li>
+        </ul>
+        <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+      </nav>
+    </header>
+
+    <main class="contact-section">
+      <h1>Get In Touch</h1>
+
+      <form action="https://formsubmit.co/rrazik487@gmail.com" method="POST" class="contact-form" id="contactForm">
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="contact.html?success=1" />
+        <input type="hidden" name="_subject" value="New message from your portfolio!" />
+        <input type="hidden" name="_template" value="box" />
+        <input type="hidden" name="_autoresponse" value="Thank you for your message! I will get back to you soon." />
+          
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form> 
+
+    </main>
+
+    <footer>
+      © 2025 S. Razikur Rahman | All rights reserved.
+    </footer>
+  </div>
+
+  <button id="toTopBtn" title="Go to top">↑</button>
+  <div id="toast" class="toast">Message sent successfully!</div>
+
+  <script src="js/contact.js"></script>
+</body>
+</html>
