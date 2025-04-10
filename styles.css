@@ -1,40 +1,91 @@
 body {
     margin: 0;
-    overflow: hidden;
-    background: linear-gradient(45deg, #1e3c72, #2a5298);
     font-family: 'Arial', sans-serif;
+    color: #333;
+    background: #f4f4f4;
 }
 
-#container {
-    width: 100vw;
-    height: 100vh;
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1e3c72;
+    color: white;
+    z-index: 100;
 }
 
-#info {
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+header {
+    text-align: center;
+    padding: 50px 0;
+    background: #2a5298;
+    color: white;
+    margin-top: 40px; /* Space for fixed nav */
+}
+
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #1e3c72;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #f0f0f0;
+    padding: 15px;
     border-radius: 5px;
 }
 
-.panel {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    display: none;
-    color: #333;
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.panel.active {
-    display: block;
-}
-
-a {
-    color: #2a5298;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
