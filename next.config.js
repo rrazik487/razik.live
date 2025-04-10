@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+    output: 'export',
+    basePath: process.env.NODE_ENV === 'production' ? '/portfolio-site' : '',
     images: {
-      unoptimized: true
+      unoptimized: true,
     },
-    output: 'export',  // For GitHub Pages deployment
-    distDir: 'out',
   };
   
   module.exports = nextConfig;
-  
