@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { motion } from 'framer-motion';
-import NavBehavior from '../components/NavBehavior';
-
+import Projects from '../components/Projects';
+import Skills from '../components/Skills';
 
 export default function Home() {
   return (
@@ -12,53 +12,75 @@ export default function Home() {
         <meta name="description" content="Portfolio of S. Razikur Rahman - Cybersecurity, Electronics, Pentesting Projects" />
       </Head>
 
-      <NavBehavior />
-
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <motion.section id="home" className="hero" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Cybersecurity Enthusiast | Electronics Engineer | Pentester</p>
-      </motion.section>
-
-      <motion.section id="projects" className="projects" initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ staggerChildren: 0.3 }}>
-        {[
-          { title: 'Smart Yoga Mat', desc: 'AI-powered yoga mat for real-time posture correction.' },
-          { title: 'NavIC Sentinel', desc: "Secure GPS tracking system using India's NavIC." },
-          { title: 'CTF Challenges', desc: 'Participated in cybersecurity challenges, securing a top 10 position.' }
-        ].map((proj, index) => (
-          <motion.div
-            key={index}
-            className="project-card"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
+      <motion.section 
+        id="hero" 
+        className="hero py-20 bg-gradient-to-r from-black via-gray-900 to-gray-800 text-white"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="container mx-auto px-4 text-center">
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold mb-6"
+            initial={{ y: -50 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <h3>{proj.title}</h3>
-            <p>{proj.desc}</p>
-          </motion.div>
-        ))}
+            Welcome to My Portfolio
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl text-blue-300"
+            initial={{ y: 50 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            Cybersecurity Enthusiast | Electronics Engineer | Pentester
+          </motion.p>
+        </div>
       </motion.section>
 
-      <motion.section id="skills" className="skills" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
-        <h2>Skills</h2>
-        <ul>
-          <li>Cybersecurity & Ethical Hacking</li>
-          <li>Networking & Web Security</li>
-          <li>Embedded Systems & IoT</li>
-          <li>Python, Bash, C, Verilog</li>
-        </ul>
+      <motion.section 
+        id="about" 
+        className="py-16 bg-gray-50"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-8">Who am I</h2>
+          <p className="text-lg max-w-3xl mx-auto">
+            I'm a cybersecurity enthusiast with a strong background in electronics engineering. I love exploring
+            vulnerabilities, building embedded systems, and diving deep into the world of ethical hacking.
+          </p>
+        </div>
       </motion.section>
 
-      <footer id="contact">
-        <p>© 2025 S. Razikur Rahman | All rights reserved.</p>
-      </footer>
+      <motion.section 
+        id="projects" 
+        className="py-16"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="container mx-auto px-4">
+          <Projects />
+        </div>
+      </motion.section>
+
+      <motion.section 
+        id="skills" 
+        className="py-16 bg-gray-50"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="container mx-auto px-4">
+          <Skills />
+        </div>
+      </motion.section>
 
       <button id="backToTop" className="back-to-top">↑</button>
     </>

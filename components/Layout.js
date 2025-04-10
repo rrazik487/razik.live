@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 export default function Layout({ children }) {
   return (
@@ -10,24 +11,10 @@ export default function Layout({ children }) {
       </Head>
 
       <div className="min-h-screen flex flex-col bg-white text-gray-900">
-        {/* Header */}
+        {/* Header with Navbar */}
         <header className="bg-black text-white shadow-md">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Razik</h1>
-            <nav className="space-x-4">
-              <Link href="/" className="hover:text-gray-300">
-                Home
-              </Link>
-              <Link href="/about" className="hover:text-gray-300">
-                About
-              </Link>
-              <Link href="/certifications" className="hover:text-gray-300">
-                Certifications
-              </Link>
-              <Link href="/contact" className="hover:text-gray-300">
-                Contact
-              </Link>
-            </nav>
+          <div className="container mx-auto px-4 py-4">
+            <Navbar />
           </div>
         </header>
 
@@ -35,9 +22,7 @@ export default function Layout({ children }) {
         <main className="flex-grow">{children}</main>
 
         {/* Footer */}
-        <footer className="bg-gray-100 text-center py-4 mt-10 border-t">
-          <p className="text-sm text-gray-500">© {new Date().getFullYear()} Razik. All rights reserved.</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );
