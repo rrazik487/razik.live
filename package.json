@@ -2,10 +2,13 @@
   "name": "portfolio-site",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-  "dev": "next dev",
-  "build": "next build"
-},
+  
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start"
+    
+  },
   "dependencies": {
     "framer-motion": "^12.6.3",
     "next": "^15.3.0",
