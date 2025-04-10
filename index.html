@@ -3,34 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Razik's Page</title>
-    <!-- Link to Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Link to your custom CSS file -->
+    <title>Razik's 3D Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <style>
+        body { margin: 0; overflow: hidden; background: linear-gradient(45deg, #1e3c72, #2a5298); }
+        #info { position: absolute; top: 10px; left: 10px; color: white; font-family: Arial; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">Welcome to Razik's Page</h1>
-        <p class="subtitle">Connect with me:</p>
-        <div class="links">
-            <a href="https://www.instagram.com/razik_487/" target="_blank" class="link-item">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-            <a href="https://www.linkedin.com/in/s-razikur-rahman-304415235" target="_blank" class="link-item">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:rrazik487@gmail.com" class="link-item">
-                <i class="fas fa-envelope"></i> Email: rrazik487@gmail.com
-            </a>
-            <p class="link-item"><i class="fas fa-phone"></i> Contact: 6382208661</p>
-        </div>
-        <p class="subtitle">More info:</p>
-        <div class="links">
-            <a href="https://razik.live" target="_blank" class="link-item">
-                <i class="fas fa-globe"></i> razik.live
-            </a>
-        </div>
-    </div>
+    <div id="info">Click and drag to rotate | Scroll to zoom</div>
+    <div id="container"></div>
+    <script src="script.js"></script>
 </body>
 </html>
