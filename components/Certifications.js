@@ -1,29 +1,12 @@
-import { motion } from 'framer-motion';
-
 export default function Certifications() {
-  const certs = [
-    "Certified Ethical Hacker (CEH) – EC-Council",
-    "Cybersecurity Analyst – TCS",
-    "Foundations of Cybersecurity – Google"
-  ];
-
   return (
-    <section className="cert-section">
-      <h2>Certifications</h2>
-      <div className="cert-list">
-        {certs.map((cert, index) => (
-          <motion.div
-            key={index}
-            className="cert-card"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            viewport={{ once: true }}
-          >
-            {cert}
-          </motion.div>
-        ))}
-      </div>
-    </section>
+    <div>
+      <h1 className="text-4xl font-bold mb-6">Certifications</h1>
+      <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
+        <li>AWS Certified Solutions Architect</li>
+        <li>Certified Ethical Hacker (CEH)</li>
+        <li>Frontend Developer - Coursera</li>
+      </ul>
+    </div>
   );
 }

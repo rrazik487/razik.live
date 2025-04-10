@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '../app/layout';
+import Layout from '../components/Layout';
 import Contact from '../components/Contact';
 
 export default function ContactPage() {
@@ -9,7 +9,9 @@ export default function ContactPage() {
         <title>Contact | Razik</title>
         <meta name="description" content="Get in touch with S. Razikur Rahman via email or phone." />
       </Head>
-      <Contact />
+      <div className="max-w-3xl mx-auto py-10 px-4">
+        <Contact />
+      </div>
     </Layout>
   );
 }

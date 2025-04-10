@@ -1,24 +1,9 @@
-import { motion } from 'framer-motion';
-
 export default function Contact() {
   return (
-    <section className="contact-section">
-      <h2>Contact Me</h2>
-      <motion.div
-        className="contact-card"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <p>
-          <strong>Email:</strong>{' '}
-          <a href="mailto:rrazik487@gmail.com">rrazik487@gmail.com</a>
-        </p>
-        <p>
-          <strong>Phone:</strong> 6382308661
-        </p>
-      </motion.div>
-    </section>
+    <div>
+      <h1 className="text-4xl font-bold mb-6">Contact Me</h1>
+      <p className="text-lg text-gray-600 mb-4">Email: <a className="text-blue-500" href="mailto:razik@example.com">razik@example.com</a></p>
+      <p className="text-lg text-gray-600">Phone: +91-9876543210</p>
+    </div>
   );
 }

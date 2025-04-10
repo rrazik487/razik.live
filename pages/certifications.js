@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '../app/layout';
+import Layout from '../components/Layout';
 import Certifications from '../components/Certifications';
 
 export default function CertificationsPage() {
@@ -7,9 +7,14 @@ export default function CertificationsPage() {
     <Layout>
       <Head>
         <title>Certifications | Razik</title>
-        <meta name="description" content="Explore the certifications of S. Razikur Rahman in cybersecurity and technology." />
+        <meta
+          name="description"
+          content="Explore the certifications of S. Razikur Rahman in cybersecurity and technology."
+        />
       </Head>
-      <Certifications />
+      <div className="max-w-3xl mx-auto py-10 px-4">
+        <Certifications />
+      </div>
     </Layout>
   );
 }
