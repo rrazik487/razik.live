@@ -1,34 +1,18 @@
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState('/');
   const router = useRouter();
 
-  useEffect(() => {
-    setActiveLink(router.pathname);
-  }, [router.pathname]);
+  const getActiveClass = (path) => (router.pathname === path ? 'active' : '');
 
   return (
-    <nav className="navbar">
-      <ul>
-        <li className={activeLink === '/' ? 'active' : ''}>
-          <Link href="/"><span>Home</span></Link>
-        </li>
-        <li className={activeLink === '/about' ? 'active' : ''}>
-          <Link href="/about"><span>About</span></Link>
-        </li>
-        <li className={activeLink === '/projects' ? 'active' : ''}>
-          <Link href="/projects"><span>Projects</span></Link>
-        </li>
-        <li className={activeLink === '/certifications' ? 'active' : ''}>
-          <Link href="/certifications"><span>Certifications</span></Link>
-        </li>
-        <li className={activeLink === '/contact' ? 'active' : ''}>
-          <Link href="/contact"><span>Contact</span></Link>
-        </li>
-      </ul>
+    <nav>
+      <Link href="/" className={getActiveClass('/')}>Home</Link>
+      <Link href="/projects" className={getActiveClass('/projects')}>Projects</Link>
+      <Link href="/certifications" className={getActiveClass('/certifications')}>Certifications</Link>
+      <Link href="/about" className={getActiveClass('/about')}>Skills</Link>
+      <Link href="/contact" className={getActiveClass('/contact')}>Contact</Link>
     </nav>
   );
 };
