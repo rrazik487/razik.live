@@ -10,7 +10,7 @@
 <body>
   <header class="navbar">
     <div class="nav-left">
-      <h2>S. Razikur Rahman</h2>
+      <h2 id="chatToggle">S. Razikur Rahman</h2>
     </div>
     <nav class="nav-right">
       <a href="index.html">Home</a>
@@ -22,7 +22,7 @@
     </nav>
   </header>
 
-  <main class="intro-section">
+  <main class="intro-section" id="introSection">
     <h3>👋 Hi, I'm</h3>
     <h1>S. Razikur Rahman</h1>
     <p>Cybersecurity Enthusiast | Electronics Engineer | Pentester</p>
@@ -43,15 +43,20 @@
     </div>
   </main>
 
+  <!-- Chatbot Container -->
+  <div class="chatbot-container" id="chatbotContainer">
+    <div class="chat-header">💬 Razik's Portfolio Assistant</div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Ask me anything..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
   <footer class="footer">
     © 2025 S. Razikur Rahman | All rights reserved.
   </footer>
 
-  <script>
-    const toggle = document.getElementById('modeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
