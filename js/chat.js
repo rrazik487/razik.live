@@ -2,10 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatBody = document.getElementById("chatBody");
     const userInput = document.getElementById("userInput");
   
-    // Initial welcome message
     appendMessage("bot", "👋 Hello! I'm Razik's Portfolio Assistant. Ask me anything about his work, skills, or contact info!");
   
-    // Enter key triggers send
     userInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") sendMessage();
     });
@@ -33,7 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
   
         const data = await response.json();
-        const reply = data?.data?.[0]?.content || "Sorry, I couldn't get that. Try again!";
+        console.log("API raw response:", data);
+  
+        // Try different fallback options for the response structure
+        const reply =
+          data?.data?.[0]?.content ||
+          data?.choices?.[0]?.message?.content ||
+          data?.message ||
+          "Sorry, I couldn't get that. Try again!";
+  
         appendMessage("bot", reply);
       } catch (error) {
         console.error("Error:", error);
@@ -48,5 +54,5 @@ document.addEventListener("DOMContentLoaded", () => {
       chatBody.appendChild(msgDiv);
       chatBody.scrollTop = chatBody.scrollHeight;
     }
+                
   });
-  
