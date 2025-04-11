@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.querySelector(".nav-links");
-  const toTopBtn = document.getElementById("toTopBtn");
+  const headers = document.querySelectorAll(".accordion-header");
 
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+  headers.forEach(header => {
+    header.addEventListener("click", () => {
+      const currentlyOpen = document.querySelector(".accordion-header.active");
+      if (currentlyOpen && currentlyOpen !== header) {
+        currentlyOpen.classList.remove("active");
+        currentlyOpen.nextElementSibling.style.display = "none";
+      }
+
+      header.classList.toggle("active");
+      const body = header.nextElementSibling;
+      body.style.display = body.style.display === "block" ? "none" : "block";
+    });
   });
-
-  window.addEventListener("scroll", () => {
-    toTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
-  });
-
-  toTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  console.log("Certifications page JS loaded.");
 });
+//       chatbotContainer.classList.add("show");  
+//     }, 500);
