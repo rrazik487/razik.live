@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   headers.forEach(header => {
     header.addEventListener("click", () => {
-      const currentlyOpen = document.querySelector(".accordion-header.active");
-      if (currentlyOpen && currentlyOpen !== header) {
-        currentlyOpen.classList.remove("active");
-        currentlyOpen.nextElementSibling.style.display = "none";
-      }
+      // Close other open sections
+      document.querySelectorAll(".accordion-header").forEach(h => {
+        if (h !== header) {
+          h.classList.remove("active");
+          h.nextElementSibling.style.display = "none";
+        }
+      });
 
       header.classList.toggle("active");
       const body = header.nextElementSibling;
@@ -15,5 +17,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-//       chatbotContainer.classList.add("show");  
-//     }, 500);

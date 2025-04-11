@@ -156,8 +156,23 @@
     });
   </script>
 
-
-
+  <button id="toTopBtn" title="Go to top">↑</button>
+  <script>
+    const toTopBtn = document.getElementById("toTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        toTopBtn.style.display = "block";
+      } else {
+        toTopBtn.style.display = "none";
+      }
+    };
+    toTopBtn.onclick = function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+  
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
   <script src="js/certifications.js"></script>
 </body>
 </html>

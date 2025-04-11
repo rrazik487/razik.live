@@ -26,7 +26,6 @@ body {
   min-height: 100vh;
 }
 
-/* Header */
 header {
   background-color: var(--card);
   padding: 1rem 2rem;
@@ -40,11 +39,6 @@ header {
   font-weight: bold;
   color: var(--text);
   transition: 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-  color: var(--accent);
 }
 
 .nav-links {
@@ -66,11 +60,6 @@ header {
   text-decoration: underline;
 }
 
-.hamburger {
-  display: none;
-}
-
-/* Section */
 .certifications-section {
   max-width: 900px;
   margin: 3rem auto;
@@ -84,21 +73,26 @@ header {
   margin-bottom: 2rem;
 }
 
-/* Accordion */
-.accordion-item {
-  border-radius: 6px;
-  margin-bottom: 1rem;
+.accordion {
+  border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #2c2f3a;
 }
 
+/* Accordion Items */
+.accordion-item {
+  background: var(--card);
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+  border-radius: 6px;
+}
+
+/* Accordion Header */
 .accordion-header {
-  background-color: var(--card);
-  color: var(--text);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -108,13 +102,19 @@ header {
 }
 
 .accordion-header img {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
+  margin-right: 10px;
+}
+
+.accordion-header h2 {
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .accordion-header i {
-  margin-left: auto;
   transition: transform 0.3s ease;
 }
 
@@ -122,12 +122,12 @@ header {
   transform: rotate(180deg);
 }
 
+/* Accordion Body */
 .accordion-body {
-  background-color: var(--card);
   display: none;
   padding: 1rem 2rem;
   border-top: 1px solid #333;
-  animation: fadeDown 0.3s ease;
+  animation: fadeIn 0.3s ease;
 }
 
 .accordion-body ul {
@@ -155,8 +155,7 @@ footer {
   color: #888;
 }
 
-/* Animation */
-@keyframes fadeDown {
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(-5px);
@@ -167,7 +166,7 @@ footer {
   }
 }
 
-/* Responsive */
+/* Mobile */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -194,6 +193,3 @@ footer {
     padding: 1rem;
   }
 }
-/* Compare this snippet from razik.live/styles/chat.css: */
-/*   background-color: #1f1f1f;       
- */
