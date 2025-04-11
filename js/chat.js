@@ -31,18 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
   
         const data = await response.json();
-        console.log("API raw response:", data);
+        console.log("API response:", data);
   
-        // Try different fallback options for the response structure
-        const reply =
-          data?.data?.[0]?.content ||
-          data?.choices?.[0]?.message?.content ||
-          data?.message ||
-          "Sorry, I couldn't get that. Try again!";
-  
+        // ✅ Use correct property
+        const reply = data.response || "Sorry, I couldn't get that. Try again!";
         appendMessage("bot", reply);
+  
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Fetch error:", error);
         appendMessage("bot", "Oops! Something went wrong. Please try again.");
       }
     };
@@ -54,5 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
       chatBody.appendChild(msgDiv);
       chatBody.scrollTop = chatBody.scrollHeight;
     }
-                
   });
+// Toggle Chatbot View
+const chatToggle = document.getElementById("chatToggle");   
+const chatbotContainer = document.getElementById("chatbotContainer");
+const introSection = document.getElementById("introSection");
+chatToggle.addEventListener("click", () => {
+    introSection.classList.add("shift-left");
+    setTimeout(() => {
+      chatbotContainer.classList.add("show");
+    }, 500);
+  });
+// Send message on click
+                        
