@@ -5,42 +5,56 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatBody = document.getElementById("chatBody");
   const userInput = document.getElementById("userInput");
 
-  // Toggle chat visibility
+  // Toggle Chatbot View
   chatToggle.addEventListener("click", () => {
-    // Slide intro section
     introSection.classList.add("shift-left");
-
-    // Show chatbot after slight delay
     setTimeout(() => {
       chatbotContainer.classList.add("show");
-      chatbotContainer.classList.remove("hide");
-
-      // Load welcome message only if it's not already loaded
-      if (!chatBody.innerHTML.trim()) {
-        appendMessage("Razik's Assistant", "👋 Hello! How can I help you with my portfolio?");
-      }
-    }, 400);
+    }, 500);
+    // Initial welcome message
+    if (chatBody.children.length === 0) {
+      appendMessage("bot", "👋 Hello! I'm Razik's Portfolio Assistant. Ask me anything about his work, skills, or contact info!");
+    }
   });
 
-  // Send user message
-  window.sendMessage = function () {
+  // Send message on click
+  window.sendMessage = async () => {
     const message = userInput.value.trim();
-    if (message === "") return;
+    if (!message) return;
 
-    appendMessage("You", message);
+    appendMessage("user", message);
     userInput.value = "";
 
-    // Simulate bot reply
-    setTimeout(() => {
-      appendMessage("Razik's Assistant", "🤖 I'm still learning. But I can help guide you through my work!");
-    }, 1000);
+    try {
+      const response = await fetch("https://agent-prod.studio.lyzr.ai/v3/inference/chat/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "sk-default-pmIsJuzTr18DyZtG9JDw3oMx4o3gsXWB"
+        },
+        body: JSON.stringify({
+          user_id: "qpoire07@gmail.com",
+          agent_id: "67f88bfdedfb72a89a82d234",
+          session_id: "67f88bfdedfb72a89a82d234",
+          message: message
+        })
+      });
+
+      const data = await response.json();
+      const reply = data?.data?.[0]?.content || "Sorry, I couldn't get that. Try again!";
+      appendMessage("bot", reply);
+    } catch (error) {
+      console.error("Error:", error);
+      appendMessage("bot", "Oops! Something went wrong. Please try again.");
+    }
   };
 
-  // Helper to add messages
+  // Append chat messages
   function appendMessage(sender, text) {
-    const messageEl = document.createElement("div");
-    messageEl.innerHTML = `<strong>${sender}:</strong> ${text}`;
-    chatBody.appendChild(messageEl);
+    const msgDiv = document.createElement("div");
+    msgDiv.classList.add("chat-message");
+    msgDiv.innerHTML = `<strong>${sender === "user" ? "You" : "Assistant"}:</strong> ${text}`;
+    chatBody.appendChild(msgDiv);
     chatBody.scrollTop = chatBody.scrollHeight;
   }
 });

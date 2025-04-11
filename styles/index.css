@@ -206,3 +206,33 @@ body {
   opacity: 0;
   transition: transform 0.6s ease, opacity 0.6s ease;
 } 
+.chat-message {
+  margin-bottom: 10px;
+}
+.chat-message.user {
+  text-align: right;
+}
+.chat-message.bot {
+  text-align: left;
+}     
+.chat-message p {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+}
+.chat-message.user p {
+  background-color: var(--accent);
+  color: #000;
+}
+.chat-message.bot p {
+  background-color: #1a1c29;
+  color: var(--text);
+}
+.chat-message p {
+  max-width: 80%;
+  word-wrap: break-word;
+}
+.chat-message p img {
+  max-width: 100%;
+  height: auto;
+}

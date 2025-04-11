@@ -45,7 +45,16 @@
 
   <!-- Chatbot Container -->
   <div class="chatbot-container" id="chatbotContainer">
-    <div class="chat-header">💬 Razik's Portfolio Assistant</div>
+    <div class="chat-header">💬 Razik's Portfolio Assistant</div>   
+    <div class="chat-toggle" id="chatToggleIcon">
+      <i class="fas fa-times"></i>
+    </div>  
+    <div class="chat-welcome-message" id="chatWelcomeMessage">
+      <p>Hi! I'm Razik's Portfolio Assistant. How can I help you today?</p>
+      <p>Type 'help' for a list of commands.</p>
+    </div>
+    <div class="chat-loading" id="chatLoading">
+      <p>Loading...</p>
     <div class="chat-body" id="chatBody"></div>
     <div class="chat-input">
       <input type="text" id="userInput" placeholder="Ask me anything..." />
